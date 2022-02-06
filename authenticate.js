@@ -19,13 +19,6 @@ const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = config.secretKey;
 
-exports.getToken = function(user) {
-    return jwt.sign(user, config.secretKey, {expiresIn: 3600});
-};
-
-const opts = {};
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = config.secretKey;
 
 exports.jwtPassport = passport.use(
     new JwtStrategy(

@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../models/user');
+const User = require('../models/users');
 const passport = require('passport');
 const authenticate = require('../authenticate');
 
@@ -7,7 +7,7 @@ const router = express.Router();
 
 /* GET users listing. */
 
-user.route('/')
+User.route('/')
 .get(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     User.find()
         .then(response => {
